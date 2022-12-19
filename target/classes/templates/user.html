@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>user page</title>
+</head>
+<body>
+<!--Заголовок-->
+<div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand mb-0 h1 text-light">
+                <span  th:text="${userInfo.getAge()}" class="font-weight-bold"></span>
+                <span> with roles:</span>
+                <span  th:text="${userInfo.getRoles()}" class="mx-1"></span>
+            </a>
+            <form class="d-flex" th:action="@{/logout}">
+                <button class="btn btn-link text-secondary" type="submit">Logout</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+
+<div class="row">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white col-3" style="height: 100%">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/user" class="nav-link active" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+                    User
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="col">
+        <h1>User information-page</h1>
+        <div>
+            <div class="col-xxl-15 py-2 bg-light border">
+                <h5 class="mx-3">About user</h5>
+            </div>
+            <table class="table border">
+                <thead>
+                <tr class="table-light">
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Roles</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class = "table-secondary">
+                    <td th:text="${userInfo.getId()}"/><td>
+                    <td th:text="${userInfo.getUsername()}"/><td>
+                    <td th:text="${userInfo.getAge()}"/><td>
+                    <td th:text="${userInfo.getRoles()}"/><td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
